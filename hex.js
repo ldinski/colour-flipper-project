@@ -4,6 +4,7 @@ const prev = document.getElementById("prev");
 const color = document.querySelector(".color");
 const heading = document.getElementById("heading");
 const headingPrev = document.querySelector(".headingPrev");
+const copy = document.getElementById("copy");
 const prevColor = [];
 
 btn.addEventListener("click", function () {
@@ -30,3 +31,10 @@ prev.addEventListener("click", function () {
 function getRandomNumber() {
   return Math.floor(Math.random() * hex.length);
 }
+
+copy.addEventListener("click", function copyToCB() {
+  let copyHex = document.getElementById("copy").value;
+  navigator.clipboard.writeText(prevColor[prevColor.length - 1]).then(() => {
+    alert("Copied: " + prevColor[prevColor.length - 1]);
+  });
+});
